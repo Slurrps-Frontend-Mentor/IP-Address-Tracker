@@ -1,0 +1,131 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  margin: 0px auto;
+  width: 100vw;
+  max-width: 1920px;
+  background-color: lightgray;
+  overflow: hidden;
+  overflow-y: visible;
+  height: 100vh;
+  min-height: 640px;
+}
+
+/*Header Tag*/
+header {
+  align-items: center;
+  background-image: url(../images/pattern-bg.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  margin: 0 auto;
+  overflow-y: visible;
+  position: relative;
+  width: 100%;
+  height: 250px;
+}
+
+/*/////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////*/
+/*Classes*/
+/*Title Class*/
+.title h1 {
+  color: white;
+  font-family: 'Rubik', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  padding-top: 40px;
+}
+
+/*/////////////////////////////////////////////////////////////*/
+/*Search bar and button items*/
+/*Input Group for the search bar and button*/
+.input-group {
+  height: 50px;
+  padding-top: 20px;
+  width: 500px;
+}
+
+/*Search Bar*/
+.search-bar {
+  border: 0px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  font-size: 18px;
+  outline: none;
+  padding-left: 20px;
+}
+
+/*Search Button*/
+.search-button {
+  background-color: hsl(0, 0%, 17%);
+  border: none;
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+  width: 10%;
+}
+
+/*/////////////////////////////////////////////////////////////*/
+/*IP Details Container*/
+/*Container for the items*/
+.container {
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  width: 80%;
+  z-index: 1000;
+}
+
+/*Title of the details*/
+.ip-title {
+  color: hsl(0, 0%, 59%);
+  font-size: 12px;
+  font-weight: 500;
+  font-family: 'Rubik', sans-serif;
+}
+
+/*Border Line on the right of the details*/
+.border-line {
+  border-right: 1px solid hsl(0, 0%, 59%);
+}
+
+/*/////////////////////////////////////////////////////////////*/
+/*Map details*/
+#map {
+  min-height: 450px;
+  width: 100%;
+  height: calc(100vh - 250px);
+}
+
+/*/////////////////////////////////////////////////////////////*/
+/*media*/
+@media only screen and (max-width:390px) {
+  .border-line {
+    border: none;
+  }
+
+  .input-group {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width:1000px) {
+  .row {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .border-line {
+    border: none;
+  }
+}
