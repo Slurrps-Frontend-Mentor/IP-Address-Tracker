@@ -6,6 +6,7 @@
 
 body, html {
   background-color: lightgray;
+  height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -78,11 +79,11 @@ header {
 #mapid {
   min-height: 450px;
   width: 100%;
-  height: calc(100vh - 250px);
+  height: calc(100vh - 200px);
 }
 
 /*/////////////////////////////////////////////////////////////*/
-/*media*/
+/*media Queries*/
 @media only screen and (max-width:390px) {
   .border-line {
     border: none;

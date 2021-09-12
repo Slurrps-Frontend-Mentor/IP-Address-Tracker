@@ -1,13 +1,15 @@
 ////////////////////////////Variables//////////////////////////////////////
 
 //ipify api key
-const api_key = 'at_fBhFEZI3AjDNmPmJPRshNDrIL2dBC';
+const api_key = 'at_hiOfiH8DiOtEs9EvZqM165ZzEQZOi';
 
 //Constants to get the DOM elements from the IP information area
 const ipAddress = document.getElementById("IP-Address");
 const ipLocation = document.getElementById("location");
 const timezone = document.getElementById("timezone");
 const isp = document.getElementById("isp");
+
+const mymap = L.map('mapid')
 
 //Constant to get the input element
 const input = document.getElementById("ipInput");
@@ -50,7 +52,7 @@ async function init() {
 async function getLocalIPData() {
   //fetch the data from ipify
   const response = await fetch(
-    'http://ip-api.com/json/'
+    `https://geo.ipify.org/api/v1?apiKey=${api_key}`
   );
   //set data = response json
   const data = await response.json();
@@ -64,13 +66,13 @@ function loadData(data) {
   let lat = null;
   let lng = null;
   //Fill the page elements with incomming data
-  ipAddress.innerHTML = data.query;
-  ipLocation.innerHTML = `${data.city}, ${data.region}`;
-  timezone.innerHTML = "UTC" + data.timezone;
+  ipAddress.innerHTML = data.ip;
+  ipLocation.innerHTML = `${data.location.city}, ${data.location.region}`;
+  timezone.innerHTML = "UTC" + data.location.timezone;
   isp.innerHTML = data.isp;
   //Set the latitude and longitude
-  lat = data.lat;
-  lng = data.lon;
+  lat = data.location.lat;
+  lng = data.location.lng;
 
   //Call the drawMap function giving it the latitude and longitude
   drawMap(lat, lng);
@@ -80,7 +82,7 @@ function loadData(data) {
 function drawMap(lat, lng) {
 
   //Create mymap variable and set the view to the incomming latitude and longitude
-  var mymap = L.map("mapid").setView([lat, lng], 18);
+  mymap.setView([lat, lng], 18);
   //Create a constant marker to put on the map with the incomming latitude and longitude
   const marker = L.marker([lat, lng]).addTo(mymap);
   //set marker latitude and longitude
@@ -99,9 +101,16 @@ function drawMap(lat, lng) {
 
 //Async function to get IP details from a query
 async function getIPDetails(query) {
+  var type = "";
+  if(ipExp.test(query)) {
+    type = "ipAddress";
+  }
+  else {
+    type = "domain";
+  }
   //fetch the data from ipify
   const response = await fetch(
-    `http://ip-api.com/json/${query}`
+    `https://geo.ipify.org/api/v1?apiKey=${api_key}&${type}=${query}`
   );
   //set data = response json
   const data = await response.json();
