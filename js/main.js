@@ -1,5 +1,4 @@
 ////////////////////////////Variables//////////////////////////////////////
-
 //ipify api key
 const api_key = 'at_hiOfiH8DiOtEs9EvZqM165ZzEQZOi';
 
@@ -9,17 +8,17 @@ const ipLocation = document.getElementById("location");
 const timezone = document.getElementById("timezone");
 const isp = document.getElementById("isp");
 
+//Map constant
 const mymap = L.map('mapid')
 
 //Constant to get the input element
 const input = document.getElementById("ipInput");
 
-//Regular Expressions
+//Regular Expressions to test incomming input
 const ipExp = /^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/gi;
 const domainExp = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}$/;
 
 ////////////////////////////Events//////////////////////////////////////
-
 //Window eventlistener to launch page loads
 window.addEventListener("load", () => {
   //Call init function
@@ -37,7 +36,6 @@ document.querySelector("form").addEventListener("submit", async (event) => {
 });
 
 ////////////////////////////Functions//////////////////////////////////////
-
 //Async function to initialize the owners IP and location
 async function init() {
   //Set the input.value to an empty string
