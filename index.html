@@ -33,69 +33,68 @@
 
 <body>
   <!-- Header -->
-  <header class="p-5 d-flex align-items-center justify-content-center">
-    <div class="container">
-      <!--Title of Header on top of page-->
-      <div class="fw-bold text-center text-white">
-        <h1>IP Address Tracker</h1>
-      </div>
+  <header class="py-5">
+    <!--Title of the page-->
+    <div class="fw-bold text-center text-white">
+      <h1>IP Address Tracker</h1>
+    </div>
 
-      <div class="container-fluid mt-4 input-container">
-        <!--IP and Domain Search Form-->
-        <form>
-          <div class="input-group">
-            <!--User Input-->
-            <input class="form-control search-bar" id="ipInput" type="text" placeholder="Search for any IP or domain">
-            <!--Submit Button-->
-            <button type="submit" class="btn btn-secondary search-button" id="searchButton"><img src="images/icon-arrow.svg" alt="arrow" /></button>
+    <!--Fluid container for the search bar and button form-->
+    <div class="container-fluid input-container mt-3">
+      <form>
+        <!--Use input group to put button and input side by side-->
+        <div class="input-group">
+          <!--User Input-->
+          <input class="form-control form-control-lg search-bar" id="ipInput" type="text" placeholder="Search for any IP or domain">
+          <!--Submit Button-->
+          <button type="submit" class="btn btn-secondary search-button" id="searchButton"><img src="images/icon-arrow.svg" alt="arrow" /></button>
+        </div>
+      </form>
+    </div>
+
+    <section class="d-flex justify-content-center">
+      <!--IP Details within a container-->
+      <!--Break the columns on small screens-->
+      <div class="container ip-detail-container p-4">
+        <!--Row-->
+        <div class="row">
+          <!--Column 1 IP Address-->
+          <div class="col-sm border-line">
+            <!--Title-->
+            <h6 class="ip-title">IP ADDRESS</h6>
+            <!--Details-->
+            <h5 id="IP-Address"></h5>
           </div>
-        </form>
+          <!--Column 2 Location-->
+          <div class="col-sm border-line">
+            <!--Title-->
+            <h6 class="ip-title">LOCATION</h6>
+            <!--Details-->
+            <h5 id="location"></h5>
+          </div>
+          <!--Column 3 Timezone-->
+          <div class="col-sm border-line">
+            <!--Title-->
+            <h6 class="ip-title">TIMEZONE</h6>
+            <!--Details-->
+            <h5 id="timezone"></h5>
+          </div>
+          <!--Column 4 ISP-->
+          <div class="col-sm">
+            <!--Title-->
+            <h6 class="ip-title">ISP</h6>
+            <!--Details-->
+            <h5 id="isp"></h5>
+          </div>
+        </div>
       </div>
+    </section>
   </header>
-
-  <section class="">
-    <!--IP Details-->
-    <div class="container ip-info p-4">
-      <div class="row">
-        <!--Column 1 IP Address-->
-        <div class="col-sm border-line">
-          <!--Title-->
-          <h6 class="ip-title">IP ADDRESS</h6>
-          <!--Details-->
-          <h5 id="IP-Address"></h5>
-        </div>
-        <!--Column 2 Location-->
-        <div class="col-sm border-line">
-          <!--Title-->
-          <h6 class="ip-title">LOCATION</h6>
-          <!--Details-->
-          <h5 id="location"></h5>
-        </div>
-        <!--Column 3 Timezone-->
-        <div class="col-sm border-line">
-          <!--Title-->
-          <h6 class="ip-title">TIMEZONE</h6>
-          <!--Details-->
-          <h5 id="timezone"></h5>
-        </div>
-        <!--Column 4 ISP-->
-        <div class="col-sm">
-          <!--Title-->
-          <h6 class="ip-title">ISP</h6>
-          <!--Details-->
-          <h5 id="isp"></h5>
-        </div>
-      </div>
-    </div>
-    </div>
-  </section>
 
   <!-- Main -->
   <main>
     <!--Map-->
-    <div class="map-container">
-      <div id="map"></div>
-    </div>
+    <div id="mapid"></div>
   </main>
 
   <!--custom js-->

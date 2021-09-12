@@ -50,7 +50,7 @@ async function init() {
 async function getLocalIPData() {
   //fetch the data from ipify
   const response = await fetch(
-    `https://geo.ipify.org/api/v1?apiKey=${api_key}`
+    'http://ip-api.com/json/'
   );
   //set data = response json
   const data = await response.json();
@@ -64,23 +64,23 @@ function loadData(data) {
   let lat = null;
   let lng = null;
   //Fill the page elements with incomming data
-  ipAddress.innerHTML = data.ip;
-  ipLocation.innerHTML = `${data.location.city}, ${data.location.region}`;
-  timezone.innerHTML = "UTC" + data.location.timezone;
+  ipAddress.innerHTML = data.query;
+  ipLocation.innerHTML = `${data.city}, ${data.region}`;
+  timezone.innerHTML = "UTC" + data.timezone;
   isp.innerHTML = data.isp;
   //Set the latitude and longitude
-  lat = data.location.lat;
-  lng = data.location.lng;
+  lat = data.lat;
+  lng = data.lon;
+
   //Call the drawMap function giving it the latitude and longitude
   drawMap(lat, lng);
 }
 
 //Draw the map on the page
 function drawMap(lat, lng) {
-  //grab the inside div of the map-container
-  document.querySelector(".map-container").innerHTML = "<div id='map'></div>";
+
   //Create mymap variable and set the view to the incomming latitude and longitude
-  var mymap = L.map("map").setView([lat, lng], 18);
+  var mymap = L.map("mapid").setView([lat, lng], 18);
   //Create a constant marker to put on the map with the incomming latitude and longitude
   const marker = L.marker([lat, lng]).addTo(mymap);
   //set marker latitude and longitude
@@ -99,23 +99,9 @@ function drawMap(lat, lng) {
 
 //Async function to get IP details from a query
 async function getIPDetails(query) {
-  //Variable to hold the type of query
-  let type = null;
-
-  //Test if the query is formated in IP or Domain
-  if(ipExp.test(query)) {
-    type = "ipAddress";
-  }
-  else if(domainExp.test(query)) {
-    type = "domain";
-  }
-  else {
-    //TODO insert an error message here
-    return;
-  }
   //fetch the data from ipify
   const response = await fetch(
-    `https://geo.ipify.org/api/v1?apiKey=${api_key}&${type}=${query}`
+    `http://ip-api.com/json/${query}`
   );
   //set data = response json
   const data = await response.json();
