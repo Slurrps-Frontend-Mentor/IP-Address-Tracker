@@ -9,7 +9,9 @@ const timezone = document.getElementById("timezone");
 const isp = document.getElementById("isp");
 
 //Map constant
-const mymap = L.map('mapid')
+const mymap = L.map('map');
+
+mymap.setView([0,0], 18);
 
 //Constant to get the input element
 const input = document.getElementById("ipInput");
@@ -78,13 +80,13 @@ function loadData(data) {
 
 //Draw the map on the page
 function drawMap(lat, lng) {
-
   //Create mymap variable and set the view to the incomming latitude and longitude
-  mymap.setView([lat, lng], 18);
-  //Create a constant marker to put on the map with the incomming latitude and longitude
-  const marker = L.marker([lat, lng]).addTo(mymap);
-  //set marker latitude and longitude
-  marker.setLatLng([lat, lng]);
+  mymap.panTo([lat, lng], 18);
+  //Create a marker for the map
+  L.marker([lat, lng]).addTo(mymap);
+  //Create circle around the marker
+  L.circle([lat, lng], 30).addTo(mymap);
+
   //Add a tileLayer to the map setting its details
   L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
     maxZoom: 18,

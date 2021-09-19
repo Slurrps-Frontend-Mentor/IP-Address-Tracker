@@ -1,107 +1,126 @@
-/*All content*/
+/*///////////////////////////////////////////////////////////////*/
+/*//////////////////////////HTML Tags///////////////////////////*/
+/* * All content on page*/
 * {
+  /*font family for whole page*/
   font-family: 'Rubik', sans-serif;
+  /*margin for all items initialize to 0*/
   margin: 0;
+  /*padding for all items initialize to 0*/
   padding: 0;
 }
 
-
-/*body and html*/
-body, html {
+/*html, body properties*/
+html, body {
+  /*background color of the page and body*/
   background-color: lightgray;
-  height: 100%;
+  /*100% height for html and body*/
+  height: 100vh;
+  /*Hide all overflow*/
   overflow: hidden;
-  position: relative;
 }
 
 /*Header Tag*/
 header {
+  /*Set the background image to pattern-bg.png*/
   background-image: url(../images/pattern-bg.png);
+  /*set the background position*/
   background-position: center;
+  /*set the background repeat*/
   background-repeat: no-repeat;
+  /*set the background size*/
   background-size: cover;
+  /*set the height to 250px*/
+  height: 250px;
+  /*setting the margin 0 auto will center the content*/
   margin: 0 auto;
+  /*set the positioning to relative*/
+  position: relative;
+}
 
+/*///////////////////////////////////////////////////////////////*/
+/*////////////////////////Map Details///////////////////////////*/
+/*map override*/
+#map {
+  /*calculate the height of the map by taking 100% of the viewport and subtracting the header height*/
+  height: calc(100vh - 250px);
+  /*set width to 100% of the viewport width*/
+  width: 100vw;
 }
 
 /*/////////////////////////////////////////////////////////////*/
-/*Search bar and button items*/
+/*///////////////Search bar and button items//////////////////*/
 /*Input Group for the search bar and button*/
-.input-container {
-  width: 50%;
+.input-group {
+  /*Set the width to 50% of the width viewport*/
+  width: 50vw;
 }
 
 /*Search Bar*/
 .search-bar {
+  /*Set border to none*/
   border: none;
+  /*Set bottom and top of the left side radius to .5em*/
   border-bottom-left-radius: .5em;
   border-top-left-radius: .5em;
+  /*Set the font size*/
   font-size: 18px;
-  outline: none;
 }
 
 /*Search Button*/
 .search-button {
+  /*Set background color*/
   background-color: hsl(0, 0%, 17%);
+  /*Set border to none*/
   border: none;
+  /*Set bottom and top of the right side radius to .5em*/
   border-bottom-right-radius: .5em;
   border-top-right-radius: .5em;
-  color: white;
+  /*Set the width of the button to 3.25em*/
+  width: 3.25em;
 }
 
 /*/////////////////////////////////////////////////////////////*/
-/*IP Details Container*/
-/*Container for the items*/
-.ip-detail-container {
-  background-color: white;
+/*//////////////////IP Details Container//////////////////////*/
+/*Sets the container to overlay the parent container*/
+.overlay {
+  /*Set border radius to .5em*/
   border-radius: .5em;
-  margin-top: 2em;
-  width: 80%;
+  /*Set position to absolute to overlay the header*/
   position: absolute;
+  /*Set width to 90%*/
+  width: 90%;
+  /*Set Z-index to 1000*/
   z-index: 1000;
 }
 
-/*Title of the details*/
+/*Title of each detail*/
 .ip-title {
+  /*Set text color*/
   color: hsl(0, 0%, 59%);
+  /*Set font size*/
   font-size: 12px;
+  /*Set font weight*/
   font-weight: 500;
 }
 
-/*Border Line on the right of the details*/
+/*Border Line on the right of each column of the IP details*/
 .border-line {
+  /*Set border-right 1px wide solid and color*/
   border-right: 1px solid hsl(0, 0%, 59%);
 }
 
 /*/////////////////////////////////////////////////////////////*/
-/*Map details*/
-#mapid {
-  height: calc(100vh - 200px);
-  min-height: 450px;
-  width: 100%;
-}
-
-/*/////////////////////////////////////////////////////////////*/
-/*media Queries*/
-@media only screen and (max-width:390px) {
-  .border-line {
-    border: none;
-  }
-
-}
-
+/*///////////////////media Queries////////////////////////////*/
 @media only screen and (max-width:1000px) {
-  .row {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
 
-  .input-container {
-    width: 85%;
-  }
-
+  /*Remove right border on IP Detail container*/
   .border-line {
     border: none;
+  }
+
+  /*Set width of input group to 95%*/
+  .input-group {
+    width: 95%;
   }
 }
