@@ -9,7 +9,7 @@ const timezone = document.getElementById("timezone");
 const isp = document.getElementById("isp");
 
 //Map constant
-const mymap = L.map('map');
+const mymap = L.map('map', {zoomControl: false});
 
 mymap.setView([0,0], 18);
 

@@ -112,15 +112,20 @@ header {
 
 /*/////////////////////////////////////////////////////////////*/
 /*///////////////////media Queries////////////////////////////*/
-@media only screen and (max-width:1000px) {
 
-  /*Remove right border on IP Detail container*/
-  .border-line {
-    border: none;
-  }
+  @media only screen and (max-width:1000px) {
 
-  /*Set width of input group to 95%*/
-  .input-group {
-    width: 95%;
+    /*Remove right border on IP Detail container*/
+    .border-line {
+      border: none;
+    }
+
+    .row {
+      flex-flow: column;
+    }
+
+    /*Set width of input group to 95%*/
+    .input-group {
+      width: 95vw;
+    }
   }
-}
