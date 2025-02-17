@@ -88,15 +88,18 @@ function drawMap(lat, lng) {
   L.circle([lat, lng], 30).addTo(mymap);
 
   //Add a tileLayer to the map setting its details
-  L.tileLayer('https://tiles.stadiamaps.com/tiles/osm_bright/{z}/{x}/{y}{r}.png', {
-    maxZoom: 18,
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
-      'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>.' + ' Challenge by<a href = "https://www.frontendmentor.io?ref=challenge" target = "_blank"> Frontend Mentor</a>.' +
-      ' Coded by<a href = "https://kennethlamb.me/" target = "_blank"> Kenneth Lamb</a>.',
-    id: 'mapbox/streets-v11',
-    tileSize: 512,
-    zoomOffset: -1
-  }).addTo(mymap);
+  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+  }).addTo(map);
+  // L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  //   maxZoom: 18,
+  //   attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, ' +
+  //     'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>.' + ' Challenge by<a href = "https://www.frontendmentor.io?ref=challenge" target = "_blank"> Frontend Mentor</a>.' +
+  //     ' Coded by<a href = "https://kennethlamb.me/" target = "_blank"> Kenneth Lamb</a>.',
+  //   id: 'mapbox/streets-v11',
+  //   tileSize: 512,
+  //   zoomOffset: -1
+  // }).addTo(mymap);
 }
 
 //Async function to get IP details from a query
